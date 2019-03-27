@@ -56,10 +56,10 @@ git push origin cadidate/<příjmení.jméno>
 ```cmd
 cd test_cities_maing01-server
 ```
-```cmd
+```npm
 npm install
 ```
-```cmd
+```npm
 npm start
 ```
 
@@ -67,10 +67,10 @@ npm start
 ```cmd
 cd test_cities_maing01-server
 ```
-```cmd
+```npm
 npm install
 ```
-```cmd
+```npm
 npm start
 ```
 
@@ -79,7 +79,7 @@ npm start
 Pomoci REST klienta spustit nasledujíci requesty:
 ```http request
 http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-11111111111111111111111111111111/sys/initApp
-{ 
+dtoIn = { 
   "runtimeMode": {
     "mode": "standard"   
   }
@@ -87,7 +87,7 @@ http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-11111
 ```
 ```http request
 http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-11111111111111111111111111111111/sys/initAppWorkspace
-{
+dtoIn = {
   "awid": "22222222222222222222222222222222",                            
   "awidOwner": "0-0",                       
   "licenseOwner": {                         
@@ -110,9 +110,7 @@ http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-11111
 ```
 ```http request
 http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-22222222222222222222222222222222/init
-{
-  "authoritiesUri": "0-0"
-}
+dtoIn = {}
 ```
 # 1. Zadání - Server
 
@@ -190,13 +188,13 @@ git commit -m "T1.2 addGrade"
 Funkce refreshAverageGrade je prřipravená, neobsahuje však hlavní logiku, sekce HDS4, kterou je potřeba doplnit.
 1. Převést hodnocení na číselné hodnoty E=2.0 D=4.0 C=6.0 B=8.0 A=10.0
 2. Filtrace násobných hodnocení. Všechna hodnocení které byly vytvořeny s rozdílem do 60 sekund se zredukují na 1 hodnocení.
-2.1 Hodnocení bude mít hodnotu polovice aritmetického průměru násobných hodnocení.
-2.2 Hodnocení si ponechá čas vytvoření prvního hodnocení.
+    1. Hodnocení bude mít hodnotu polovice aritmetického průměru násobných hodnocení.
+    2. Hodnocení si ponechá čas vytvoření prvního hodnocení.
 3. Spracovat úpravu hodnocení na základe času vytvoření hodnocení:
-3.1 Pokud bylo hodnocení vytvořeno v dnech měsíce 15,16 snížit hodnocení (grade - 1)
-3.2 Pokud bylo hodnocení vytvořeno v dnech měsíce 11,12,13,14 snížit hodnocení (grade + 1)
-3.3 Všechna hodnocení, která jsou starší než 30 dnů, upravit hodnocení (grade * 0.9)
-3.4 Všechna hodnocení, která jsou starší než 90 dnů, upravit hodnocení (grade * 0.75)
+    1. Pokud bylo hodnocení vytvořeno v dnech měsíce 15,16 snížit hodnocení (grade - 1)
+    2. Pokud bylo hodnocení vytvořeno v dnech měsíce 11,12,13,14 navýšit hodnocení (grade + 1)
+    3. Všechna hodnocení, která jsou starší než 30 dnů, upravit hodnocení (grade * 0.9)
+    4. Všechna hodnocení, která jsou starší než 90 dnů, upravit hodnocení (grade * 0.75)
 4. Celkové hodnocení je aritmetickým průměrem upravených hodnocení na základe pravidel 1-3.  
 
 **Po dokončení provést git commit:**

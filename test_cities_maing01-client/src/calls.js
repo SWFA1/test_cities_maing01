@@ -13,8 +13,8 @@ let Calls = {
     return Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
   },
 
-  loadDemoContent(dtoIn) {
-    let commandUri = Calls.getCommandUri("loadDemoContent");
+  listCities(dtoIn) {
+    let commandUri = Calls.getCommandUri("listCities");
     Calls.call("get", commandUri, dtoIn);
   },
 

@@ -68,8 +68,9 @@ class CityModel {
     // HDS 3
     let filterMap = dtoIn.filterMap ? dtoIn.filterMap : {};
     let pageInfo = dtoIn.pageInfo ? dtoIn.pageInfo : {};
-    await this.dao.list(awid, filterMap, pageInfo);
+    let x = await this.dao.list(awid, filterMap, pageInfo);
 
+    return x ;
   }
 
 }

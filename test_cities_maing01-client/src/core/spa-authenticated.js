@@ -9,9 +9,7 @@ import "uu_plus4u5g01-app";
 
 import Config from "./config/config.js";
 import Lsi from "../config/lsi.js";
-import Left from "./left.js";
 import Bottom from "./bottom.js";
-import About from "../routes/about.js";
 import Home from "../routes/home.js";
 
 import "./spa-authenticated.less";
@@ -71,14 +69,11 @@ const SpaAuthenticated = createReactClass({
         bottom={<Bottom />}
         type={2}
         displayedLanguages={["cs", "en"]}
-        left={<Left identity={this.props.identity} />}
-        leftWidth="!xs-320px !s-320px !m-256px l-256px xl-256px"
       >
         <UU5.Common.Router
           routes={{
             "": "home",
-            "home": { component: <Home identity={this.props.identity} /> },
-            "about": { component: <About identity={this.props.identity} /> }
+            "home": { component: <Home identity={this.props.identity} /> }
           }}
           controlled={false}
         />
