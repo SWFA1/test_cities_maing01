@@ -6,6 +6,9 @@
       "schemaMap": {
         "citiesMain": {
           "realization": "dao/CitiesMainMongo"
+        },
+        "city": {
+          "realization": "dao/CityMongo"
         }
       }
     }

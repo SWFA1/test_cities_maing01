@@ -32,7 +32,7 @@ class CitiesMainModel {
     );
 
     // HDS 2
-    const schemas = ["citiesMain"];
+    const schemas = ["citiesMain", "city"];
     let schemaCreateResults = schemas.map(async schema => {
       try {
         return await DaoFactory.getDao(schema).createSchema();
@@ -44,20 +44,6 @@ class CitiesMainModel {
     await Promise.all(schemaCreateResults);
 
     // HDS 3
-    try {
-      await SysProfileModel.setProfile(awid, {code: "Authorities", roleUri: dtoIn.authoritiesUri});
-    } catch (e) {
-      if (e instanceof ObjectStoreError) {
-        // A4
-        throw new Errors.Init.SysSetProfileFailed({uuAppErrorMap}, {role: dtoIn.authoritiesUri}, e);
-      }
-      throw e;
-    }
-
-    // HDS 4 - HDS N
-    // TODO Implement according to application needs...
-
-    // HDS N+1
     return {
       uuAppErrorMap: uuAppErrorMap
     };
