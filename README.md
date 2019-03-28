@@ -1,6 +1,6 @@
 # Zadání
 
-Souvisejíci návody:
+Odkazy na užitečné dokumentace:
 
 - [uuApp Server Project (NodeJs)](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-2590bf997d264d959b9d6a88ee1d0ff5/book/page?code=uuAppStyleGuide_00)
 - [uuApp Client Project (UU5)](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-e884539c8511447a977c7ff070e7f2cf/book/page?code=89628511)
@@ -204,12 +204,28 @@ git commit -m "T1.3 refreshAverageGrade"
 
 # 2. Zadání - Klient
 
-## 2.1 Vytvořit novou komponentu city-detail
+Webová aplikace je dostupná na adrese:
+```http request
+http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-22222222222222222222222222222222/
+```
+## 2.1 Doplnit CSS styl - flex
+src/bricks/city-tile.less
+- Doplnit CSS s využitím flex boxů. Zabezpěčit aby se "value" zobrazovala od pravého okraje a "label" zabíral 40% šiřky rodiče.
 
-## 2.2 Opravit css styl
+**Po dokončení provést git commit:**
+```git
+git commit -m "T2.1 CSS styl - flex"
+```
 
-# 3. Zadání - Extra
+## 2.2 Implementovat funkčnost výpisu všech hodnocení, komponenta city-detail
+src/bricks/city-detail.js
+- K zobrazení využít uu5 komponenty [UU5.Bricks.Row](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksRow) a [UU5.Bricks.Column](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksColumn).
+- UU5.Bricks.Column nastavit propsu colWidth={{m: 4, l: 3, xl: 2}}
+- Pro každé hodnocení nastavit přichystanú CSS třídu gradeA,... (nutnost získat CSS třídu pomoci funkce [this.getClassName("gradeA")](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5CommonBaseMixin))
+- Při hodnocení zobrazit také čas vytvoření hodnocení.
+- Všechna hodnocení seřadit na základe hodnocení.
 
-## 3.1 ?
-
-## 3.2 ?
+**Po dokončení provést git commit:**
+```git
+git commit -m "T2.2 city-detail"
+```

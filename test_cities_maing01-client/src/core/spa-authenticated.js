@@ -9,6 +9,7 @@ import "uu_plus4u5g01-app";
 
 import Config from "./config/config.js";
 import Lsi from "../config/lsi.js";
+
 import Bottom from "./bottom.js";
 import Home from "../routes/home.js";
 
@@ -65,17 +66,19 @@ const SpaAuthenticated = createReactClass({
     return (
       <Plus4U5.App.Page
         {...this.getMainPropsToPass()}
-        top={<Plus4U5.App.Top content={this.getLsiComponent("name")} />}
+        top={<Plus4U5.App.Top content={this.getLsiComponent("name")}  />}
         bottom={<Bottom />}
         type={2}
-        displayedLanguages={["cs", "en"]}
+        displayedLanguages={["cs"]}
       >
         <UU5.Common.Router
           routes={{
             "": "home",
-            "home": { component: <Home identity={this.props.identity} /> }
+            "home": { component: <Home /> }
           }}
           controlled={false}
+          notFoundRoute="home"
+          showNotFoundRouteInUrl
         />
       </Plus4U5.App.Page>
     );

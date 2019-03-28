@@ -70,7 +70,7 @@ export const CityList = createReactClass({
         >
           <UU5.Tiles.List
             tile={<CityTile/>}
-            tileHeight={160}
+            tileHeight={180}
             tileMinWidth={280}
             tileMaxWidth={300}
             tileSpacing={8}

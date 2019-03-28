@@ -23,6 +23,20 @@ const CreateCity = {
 
 };
 
+const GetCity = {
+
+  UC_CODE: `${CitiesMainUseCaseError.ERROR_PREFIX}getCity/`,
+
+  InvalidDtoIn: class extends CitiesMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Init.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+};
+
 const ListCities = {
 
   UC_CODE: `${CitiesMainUseCaseError.ERROR_PREFIX}listCities/`,
@@ -39,5 +53,6 @@ const ListCities = {
 
 module.exports = {
   CreateCity,
+  GetCity,
   ListCities
 };
