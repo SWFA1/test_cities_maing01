@@ -115,6 +115,8 @@ dtoIn = {}
 # 1. Zadání - Server
 
 ## 1.1 Dokončit implementaci funkce listCities
+app/models/city-model.js
+
 Pro funkci modelu listCities je potřeba napsat určitou čast kódu, aby správne fungovala. 
 Funkce by měla vracet získaný seznam měst. Štruktúra výstupu pro request listCities by měla vypadat:
 ```json
@@ -150,6 +152,8 @@ git commit -m "T1.1 listCities"
 ```
 
 ## 1.2 Opravit implementaci funkce addGrade
+app/models/grade-model.js
+
 Funkce modelu addGrade je kompletne implementovaná, avšak obsahuje nějakou chybu. Je potřeba chybu nalézt a opravit tak aby při volání requestu addGrade se správne doplnilo nové hodnocení. 
 Opravený výstup by měl vypadat:
 ```json
@@ -185,6 +189,8 @@ git commit -m "T1.2 addGrade"
 ```
 
 ## 1.3 Dokončit implementaci funkce refreshAverageGrade
+app/models/grade-model.js
+
 Funkce refreshAverageGrade je prřipravená, neobsahuje však hlavní logiku, sekce HDS4, kterou je potřeba doplnit.
 1. Převést hodnocení na číselné hodnoty E=2.0 D=4.0 C=6.0 B=8.0 A=10.0
 2. Filtrace násobných hodnocení. Všechna hodnocení které byly vytvořeny s rozdílem do 60 sekund se zredukují na 1 hodnocení.
