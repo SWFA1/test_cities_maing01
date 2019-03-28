@@ -221,7 +221,7 @@ git commit -m "T2.1 CSS styl - flex"
 src/bricks/city-detail.js
 - K zobrazení využít uu5 komponenty [UU5.Bricks.Row](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksRow) a [UU5.Bricks.Column](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksColumn).
 - UU5.Bricks.Column nastavit propsu colWidth={{m: 4, l: 3, xl: 2}}
-- Pro každé hodnocení nastavit přichystanú CSS třídu gradeA,... (nutnost získat CSS třídu pomoci funkce [this.getClassName("gradeA")](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5CommonBaseMixin))
+- Pro každé hodnocení nastavit přichystanou CSS třídu gradeA,... (nutnost získat CSS třídu pomoci funkce [this.getClassName("gradeA")](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5CommonBaseMixin))
 - Při hodnocení zobrazit také čas vytvoření hodnocení.
 - Všechna hodnocení seřadit na základe hodnocení.
 
