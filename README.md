@@ -229,3 +229,9 @@ src/bricks/city-detail.js
 ```git
 git commit -m "T2.2 city-detail"
 ```
+
+# Odevzdat řešení
+**Po dokončení**
+```git
+git push
+```
