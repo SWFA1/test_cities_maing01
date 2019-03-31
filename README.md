@@ -114,10 +114,12 @@ dtoIn = {}
 ```
 # 1. Zadání - Server
 
+Tématem zadání je malá aplikace sloužící k hodnocení měst jejich návštěvníky. Uživatel má možnost zadat vlastní hodnocení města a také si zobrazit seznam měst s jejich hodnocením. Pro přidání hodnocení je připravena funkce addGrade, pro výpis měst pak listCities.  
+
 ## 1.1 Dokončit implementaci funkce listCities
 app/models/city-model.js
 
-Pro funkci modelu listCities je potřeba doplnit určitou část kódu tak, aby správně fungoval. 
+Pro funkci modelu listCities je potřeba doplnit určitou část kódu tak, aby správně fungovala. 
 Funkce by měla vracet získaný seznam měst. Struktura výstupu pro request listCities by měla vypadat následovně:
 ```json
 {
@@ -191,12 +193,18 @@ git commit -m "T1.2 addGrade"
 ## 1.3 Dokončit implementaci funkce refreshAverageGrade
 app/models/grade-model.js
 
+V této úloze je potřeba napsat algoritmus, který provede výpočet hodnocení konkrétního města na základě jednotlivých známek od uživatelů. Výsledné hodnocení je aritmetický průměr všech známek, nicméně jednotlivé známky musí před samotným výpočtem upraveny podle níže uvedených pravidel.
+
+Aplikace se snaží vypočítat hodnocení tak, aby bylo co nejvíce vypovídající. Proto se snaží zamezit uživatelům opakovaně za krátký časový úsek odesílat hodnocení konkrétního města, aby nedocházelo ke zkreslení výsledku. Pokud k násobnému odeslání dojde, aplikace redukuje záznam o hodnocení na jednu známku a penalizuje uživatele tím, že jeho hodnocení sníží na polovinu.
+Dále upravuje hodnocení podle toho, zda je období před výplatou nebo po výplatě. Podle zkušeností product ownera této aplikace uživatelé hodnotí města hůře v několika málo dnech před výplatou, neboť jim dochází peníze a nemohou si dovolit platit za atrakce a zajímavosti, které město poskytuje. Naopak ve dnech krátce po výplatě uživatelé hodnotí až příliš pozitivně, neboť se jim svět zdá mnohem růžovější.
+A nakonec snižuje známku starým hodnocením, neboť již ztrácí na aktuálnosti.
+
 Funkce refreshAverageGrade je připravená, neobsahuje však hlavní logiku, sekce HDS4, kterou je potřeba doplnit.
 1. Převést hodnocení na číselné hodnoty E=2.0 D=4.0 C=6.0 B=8.0 A=10.0
 2. Filtrace násobných hodnocení. Všechna hodnocení které byly vytvořeny s rozdílem do 60 sekund se zredukují na 1 hodnocení.
-    1. Hodnocení bude mít hodnotu polovice aritmetického průměru násobných hodnocení.
+    1. Hodnocení bude mít hodnotu poloviny aritmetického průměru násobných hodnocení.
     2. Hodnocení si ponechá čas vytvoření prvního hodnocení.
-3. Spracovat úpravu hodnocení na základe času vytvoření hodnocení:
+3. Zpracovat úpravu hodnocení na základě času vytvoření hodnocení:
     1. Pokud bylo hodnocení vytvořeno v dnech měsíce 15,16 snížit hodnocení (grade - 1)
     2. Pokud bylo hodnocení vytvořeno v dnech měsíce 11,12,13,14 navýšit hodnocení (grade + 1)
     3. Všechna hodnocení, která jsou starší než 30 dnů, upravit hodnocení (grade * 0.9)
