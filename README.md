@@ -18,7 +18,7 @@ git config --global user.email "Email"
 ```
 - [MongoDB](https://www.mongodb.com/download-center/community)
 Stáhnout a nainstalovat MongoDB.
-- Na disku kde se nainstalovalo MongoDB vytvořte složky data/db:
+- Na disku, kam se nainstalovalo MongoDB, vytvořit složky data/db:
 ```cmd
 C:\ md data
 ```
@@ -34,23 +34,23 @@ C:\data md db
 mongod
 ```
 
-- Stáhnout a nainstalovat REST client, napr. [Insomnia](https://insomnia.rest/download/).
+- Stáhnout a nainstalovat REST client, např. [Insomnia](https://insomnia.rest/download/).
 
 ## 0.2 Repozitář
 
-Pomoci nástroje git příkazem clone, převezměte repozitář:
+Pomocí nástroje git příkazem clone převzít repozitář:
 ```git
 git clone https://github.com/SWFA1/test_cities_maing01.git
 ```
 
-Vytvořte si vlastní větev. Na základe předpisu candidate/mrkvicka.jozko :
+Vytvořit si vlastní větev. Pojmenovat podle následující konvence (např. candidate/vonasek.frantisek):
 ```git
-git checkout -b cadidate/<příjmení.jméno>
+git checkout -b candidate/<prijmeni.jmeno>
 ```
 
-Pushnite svou novou větev "cadidate/<příjmení.jméno>":
+Pushnout svoji novou větev "cadidate/<prijmeni.jmeno>":
 ```git
-git push origin cadidate/<příjmení.jméno>
+git push origin cadidate/<prijmeni.jmeno>
 ```
 ## 0.3 Klient
 ```cmd
@@ -76,7 +76,7 @@ npm start
 
 ## 0.5 Inicializace projektu
 
-Pomoci REST klienta spustit nasledujíci requesty:
+Pomocí REST klienta spustit následující requesty:
 ```http request
 http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-11111111111111111111111111111111/sys/initApp
 dtoIn = { 
@@ -117,8 +117,8 @@ dtoIn = {}
 ## 1.1 Dokončit implementaci funkce listCities
 app/models/city-model.js
 
-Pro funkci modelu listCities je potřeba napsat určitou čast kódu, aby správne fungovala. 
-Funkce by měla vracet získaný seznam měst. Štruktúra výstupu pro request listCities by měla vypadat:
+Pro funkci modelu listCities je potřeba doplnit určitou část kódu tak, aby správně fungoval. 
+Funkce by měla vracet získaný seznam měst. Struktura výstupu pro request listCities by měla vypadat následovně:
 ```json
 {
    "itemList": [
@@ -154,8 +154,8 @@ git commit -m "T1.1 listCities"
 ## 1.2 Opravit implementaci funkce addGrade
 app/models/grade-model.js
 
-Funkce modelu addGrade je kompletne implementovaná, avšak obsahuje nějakou chybu. Je potřeba chybu nalézt a opravit tak aby při volání requestu addGrade se správne doplnilo nové hodnocení. 
-Opravený výstup by měl vypadat:
+Funkce modelu addGrade je kompletně implementovaná, avšak obsahuje drobnou chybu. Je potřeba chybu nalézt a opravit tak, aby bylo při volání requestu addGrade správně doplněno nové hodnocení. 
+Výstup z opraveného requestu by měl vypadat následovně:
 ```json
 {
    "name": "Prague",
@@ -191,7 +191,7 @@ git commit -m "T1.2 addGrade"
 ## 1.3 Dokončit implementaci funkce refreshAverageGrade
 app/models/grade-model.js
 
-Funkce refreshAverageGrade je prřipravená, neobsahuje však hlavní logiku, sekce HDS4, kterou je potřeba doplnit.
+Funkce refreshAverageGrade je připravená, neobsahuje však hlavní logiku, sekce HDS4, kterou je potřeba doplnit.
 1. Převést hodnocení na číselné hodnoty E=2.0 D=4.0 C=6.0 B=8.0 A=10.0
 2. Filtrace násobných hodnocení. Všechna hodnocení které byly vytvořeny s rozdílem do 60 sekund se zredukují na 1 hodnocení.
     1. Hodnocení bude mít hodnotu polovice aritmetického průměru násobných hodnocení.
@@ -216,7 +216,7 @@ http://localhost:8080/test-cities-maing01/00000000000000000000000000000000-22222
 ```
 ## 2.1 Doplnit CSS styl - flex
 src/bricks/city-tile.less
-- Doplnit CSS s využitím flex boxů. Zabezpěčit aby se "value" zobrazovala od pravého okraje a "label" zabíral 40% šiřky rodiče.
+- Doplnit CSS s využitím flex boxů. Zabezpečit, aby se "value" zobrazovala od pravého okraje a "label" zabíral 40% šířky rodiče.
 
 **Po dokončení provést git commit:**
 ```git
@@ -227,9 +227,9 @@ git commit -m "T2.1 CSS styl - flex"
 src/bricks/city-detail.js
 - K zobrazení využít uu5 komponenty [UU5.Bricks.Row](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksRow) a [UU5.Bricks.Column](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5BricksColumn).
 - UU5.Bricks.Column nastavit propsu colWidth={{m: 4, l: 3, xl: 2}}
-- Pro každé hodnocení nastavit přichystanou CSS třídu gradeA,... (nutnost získat CSS třídu pomoci funkce [this.getClassName("gradeA")](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5CommonBaseMixin))
+- Pro každé hodnocení nastavit přichystanou CSS třídu gradeA,... (nutnost získat CSS třídu pomocí funkce [this.getClassName("gradeA")](https://uuos9.plus4u.net/uu-bookkitg01-main/78462435-ed11ec379073476db0aa295ad6c00178/book/page?code=uu5CommonBaseMixin))
 - Při hodnocení zobrazit také čas vytvoření hodnocení.
-- Všechna hodnocení seřadit na základe hodnocení.
+- Všechna hodnocení seřadit sestupně podle písmen.
 
 **Po dokončení provést git commit:**
 ```git
