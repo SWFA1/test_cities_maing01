@@ -50,11 +50,18 @@ git checkout -b candidate/<prijmeni.jmeno>
 
 Pushnout svoji novou větev "cadidate/<prijmeni.jmeno>":
 ```git
-git push origin cadidate/<prijmeni.jmeno>
+git push https://github.com/SWFA1/test_cities_maing01.git
 ```
+Přihlásit se jako:
+U: CandidateSWFA1
+P: Candidate#A1
+
 ## 0.3 Klient
 ```cmd
-cd test_cities_maing01-server
+cd test_cities_maing01-client
+```
+```npm
+npm config set registry https://repo.plus4u.net/repository/npm/
 ```
 ```npm
 npm install
@@ -66,6 +73,9 @@ npm start
 ## 0.4 Server
 ```cmd
 cd test_cities_maing01-server
+```
+```npm
+npm config set registry https://repo.plus4u.net/repository/npm/
 ```
 ```npm
 npm install
