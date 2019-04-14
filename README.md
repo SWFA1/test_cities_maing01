@@ -34,8 +34,7 @@ C:\data md db
 mongod
 ```
 
-- [Robo 3T](https://robomongo.org/)
-GUI pro zobrazení dát v databáze.
+- Stáhnout a naistalovat si GUI pro zobrazení dát v databáze např. [Robo 3T](https://robomongo.org/).
 
 - Stáhnout a nainstalovat REST client, např. [Insomnia](https://insomnia.rest/download/).
 
